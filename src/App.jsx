@@ -1,7 +1,7 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import BotonMultiuso from "./components/ejemplos/BotonMultiuso"
-import Navbar from "./components/Navbar"
+
 import ItemListContainer from './components/ItemListContainer'
 import NavbarReactBootstrap from './components/NavbarReactBootstrap';
 function App() {
