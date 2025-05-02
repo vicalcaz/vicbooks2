@@ -1,8 +1,13 @@
+import '../css/TextoBrillante.css' 
+
 const ItemListContainer = ({greeting})=>{
     // const {greeting}= props
     return(
         <div>
-            <h1>{greeting}</h1>
+            <div className="texto-brillante">
+                {greeting}
+            </div>
+            
         </div>
     )
 }

@@ -1,14 +1,6 @@
-.red-button{
-  padding:2rem;
-  background-color: aquamarine;
-  color:gray;
-  font-weight: bold;
-  border-radius: 20%;
-}
-.delete-button{
-  padding:1rem;
-  background-color:red;
-  color:black;
-  font-weight: bold;
-  border-radius: 30%;
+body {
+  background-color: black; /* Establece el fondo de la página en negro */
+  color: white; /* Opcional: Cambia el color del texto a blanco para que sea legible */
+  font-family: Arial, sans-serif; /* Establece una fuente básica */
+  
 }
