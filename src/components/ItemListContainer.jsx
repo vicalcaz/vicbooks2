@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useEffect, useState } from "react"
 import { getProducts } from "../mock/AsyncService"
 import ItemList from "./ItemList"
@@ -45,20 +44,3 @@ const ItemListContainer = ({greeting})=>{
     );
 }
 export default ItemListContainer
-
-=======
-import '../css/TextoBrillante.css' 
-
-const ItemListContainer = ({greeting})=>{
-    // const {greeting}= props
-    return(
-        <div>
-            <div className="texto-brillante">
-                {greeting}
-            </div>
-            
-        </div>
-    )
-}
-export default ItemListContainer
->>>>>>> d6af2a61ec33fbaddb1ac016bf4c7f3e90127510
