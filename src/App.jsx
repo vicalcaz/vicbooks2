@@ -2,6 +2,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ItemListContainer from './components/ItemListContainer'
 import NavBar from './components/NavBar'
+<<<<<<< HEAD
 import ItemCount from './components/ItemCount';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -28,3 +29,17 @@ function App() {
 }
 
 export default App
+=======
+
+function App() {
+  return (
+    <>
+    <NavBar/>
+   
+    <ItemListContainer greeting="¡Bienvenidos a mi cofre de tesoros!"/>
+    </>
+  )
+}
+
+export default App
+>>>>>>> d6af2a61ec33fbaddb1ac016bf4c7f3e90127510

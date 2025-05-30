@@ -44,7 +44,11 @@ body {
   }
   
   .cart img {
+<<<<<<< HEAD
     width: 15px; /* Ajusta el tamaño según sea necesario */
+=======
+    width: 30px; /* Ajusta el tamaño según sea necesario */
+>>>>>>> d6af2a61ec33fbaddb1ac016bf4c7f3e90127510
     height: auto;
   }
   

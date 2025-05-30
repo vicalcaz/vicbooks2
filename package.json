@@ -14,8 +14,12 @@
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
+<<<<<<< HEAD
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.6.0"
+=======
+    "react-icons": "^5.5.0"
+>>>>>>> d6af2a61ec33fbaddb1ac016bf4c7f3e90127510
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
