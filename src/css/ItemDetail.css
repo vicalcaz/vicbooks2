@@ -1,0 +1,15 @@
+.carddetail {
+    width: 500px;
+    align-self: center;
+    margin-top: 60px;
+    text-align: center;
+    margin-left: 0;
+    text-align: left;
+  }
+  
+  .carddetail img {
+    width: 500px; /* Ancho fijo */
+    height: 600px; /* Alto fijo */
+    object-fit: cover; /* Ajusta la imagen para que llene el espacio sin deformarse */
+    border-radius: 8px; /* Opcional: bordes redondeados */
+  }

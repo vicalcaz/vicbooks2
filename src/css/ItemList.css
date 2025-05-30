@@ -1,0 +1,17 @@
+.item-list {
+    margin-left: 0;
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos al margen izquierdo */
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una fila */
+    gap: 1rem; /* Espaciado entre los elementos */
+    padding: 1rem; /* Espaciado interno del contenedor */
+}
+
+
+.item-list img {
+    width: 100px; /* Ancho fijo */
+    height: 200px; /* Alto fijo */
+    object-fit: cover; /* Ajusta la imagen para que llene el espacio sin deformarse */
+    border-radius: 8px; /* Opcional: bordes redondeados */
+  }
