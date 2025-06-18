@@ -4,7 +4,7 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../service/firebase'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-const CheckoutUseForm = () => {
+const CheckOutUseForm = () => {
     
     const [orderId, setOrderId] = useState('')
     const {cart, cartTotal, clear}=useContext(CartContext)
@@ -68,4 +68,4 @@ const CheckoutUseForm = () => {
   )
 }
 
-export default CheckoutUseForm
+export default ChecOutUseForm
