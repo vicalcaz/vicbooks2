@@ -1,15 +1,45 @@
 import { useEffect, useState } from "react"
-import { getProducts } from "../mock/AsyncService"
+// import { getProducts, products } from "../mock/AsyncService"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import '../css/TextoBrillante.css' 
+import LoaderComponent from "./LoaderComponent"
+import {db} from '../service/firebase'
+import {addDoc, collection, getDocs, query, where} from 'firebase/firestore'
+
 
 const ItemListContainer = ({greeting})=>{
     const [data, setData]= useState([])
     const { categoryId, seleccionadosId, otrosId } = useParams();
+    const [loading, setLoading]= useState(false)
     console.log(categoryId)
-
-    useEffect(() => {
+    //empezamos a utilizar firebase
+     useEffect(() => {
+        setLoading(true);
+        //pedir a firebase los productos
+        //conectarnos con nuestra colección de productos
+        const productsCollection = categoryId ? query(collection(db, "productos"), where("category", "==", categoryId)): collection(db, "productos")
+        
+        //pedir a firebase los productos (documentos)
+        getDocs(productsCollection)
+        //getdoc devuelve una promesa, lo tratamos con then y devuelve un array de productos
+        .then((res) => {
+            //limpiar los datos
+            const list = res.docs.map((doc)=> {
+                
+            //mapear los datos para obtener el id y los datos del producto
+                return {
+                    ...doc.data(),
+                    id:doc.id
+                }
+            })
+            setData(list)
+        })
+        .catch((error)=> console.log(error))
+        .finally(()=> setLoading(false))
+    },[categoryId])
+    /* useEffect(() => {
+        setLoading(true);
         getProducts()
             .then((respuesta) => {
                 if (categoryId) {
@@ -30,17 +60,42 @@ const ItemListContainer = ({greeting})=>{
                     console.log('paso por aca sin filtro');
                 }
             })
-            .catch((error) => console.error(error));
-    }, [categoryId, seleccionadosId, otrosId]);
+            .catch((error) => console.error(error))
+             //console.log('paso por aca finally')
+            .finally(()=> setLoading(false))
+    }, [categoryId, seleccionadosId, otrosId]) */
+
+    //solo se hace una sola vez, insertar los productos desde firebase
+    //tomo de mi mock, borro los id y el producto que ya dubí
+   /*  const subirData = () =>{
+         console.log('Subiendo prods...')
+         const prodCollectionToAdd = collection(db, "productos")
+         products.map((item)=> addDoc(prodCollectionToAdd, item))
+     }*/
+        //subir los productos a firebase
+
+       
     return (
         <>
-            <div className="texto-brillante">
-                <h1>{greeting}{(categoryId || seleccionadosId || otrosId) && <span style={{textTransform:'capitalize'}}>{categoryId || seleccionadosId || otrosId}</span>}</h1>
-            </div>
-            <div>
-                <ItemList data={data} />
-            </div>
+        
+            {loading 
+            ?   <LoaderComponent /> 
+            :  
+            (
+            <>
+            {/* <button onClick={subirData}>Subir DATA</button>  */}
+                <div className="texto-brillante">
+                     
+                    <h1>{greeting}{(categoryId || seleccionadosId || otrosId) && <span style={{textTransform:'capitalize'}}>{categoryId || seleccionadosId || otrosId}</span>}</h1>
+                </div>
+                <div>
+                    <ItemList data={data} />
+                </div>
+            </>
+            )
+         }
         </>
+    
     );
 }
 export default ItemListContainer

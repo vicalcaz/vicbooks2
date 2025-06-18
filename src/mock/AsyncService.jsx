@@ -1,6 +1,6 @@
-const products = [
+export const products = [
     {
-        id:'01',
+    //    id:'01', //no lo pongo en firebase porque no se puede usar el id como string
         name:'Las ruedas de un alma',
         price:15000,
         description: 'Usado, buen estado. Las ruedas de un alma, de Rabino Berg es un libro que explora la Kabbalah y la reencarnación. En esta obra, el Rabino Berg revela cómo aceptar y explorar las vidas que ya hemos vivido es esencial para comprender la vida que tenemos hoy.                       El libro también aborda temas como el nacimiento, la muerte y la vida después de la muerte, proporcionando una nueva comprensión de las leyes de la reencarnación.',
@@ -10,7 +10,7 @@ const products = [
         seleccionados:'tesoros'
     },
     {
-        id:'02',
+      //  id:'02',
         name:'Ozonis. En Algún lugar del Universo',
         price:26500,
         description:'El ejemplar es usado, pero se encuentra en muy buenas condiciones. Presenta algunos subrayados, totalmente legible',
@@ -20,18 +20,18 @@ const products = [
         seleccionados:'miseleccion'
     },
     {
-        id:'03',
+        //id:'03',
         name:'Divergente',
         price:21000,
         stock:2,
-        description:'lorem ipsums lore lorem',
+        description:`Divergent (en español: Divergente) sigue la vida de Beatrice Prior, una chica de 16 años, quien vive en una sociedad creada al comienzo de la gran paz que ha decidido agrupar a las personas en cinco facciones que tratan de erradicar los males que les llevaron a la guerra.`,
         img:'../Divergente-Ficccion.jpeg',
          category:'cienciaficcion',
          seleccionados:'miseleccion',
          otros:'ofertas'
     },
     {
-        id:'04',
+    //    id:'04',
         name:'La ciudad cambió la voz',
         price:15000,
         stock:3,
@@ -42,7 +42,7 @@ const products = [
         otros:'ofertas'
     },
     {
-        id:'05',
+     //   id:'05',
         name:'Cementerio de animales',
         price:27000,
         stock:3,
@@ -52,7 +52,7 @@ const products = [
         seleccionados:'clasicos',
         otros:'novedades'
     },
-    {    id:'06',
+    {  //  id:'06',
         name:'La ciudad',
         price:38000,
         stock:2,
@@ -61,7 +61,7 @@ const products = [
         category:'infantil',
         seleccionados:'joyas'
     },
-    {    id:'07',
+    { //   id:'07',
         name:'Cabalgando en un Silbido',
         price:31000,
         stock:1,

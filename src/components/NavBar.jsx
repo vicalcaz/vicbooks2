@@ -2,7 +2,6 @@ import "../css/Navbar.css"
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from './CartWidget';
-import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 
@@ -56,7 +55,14 @@ const Navbarnew = () => {
                     
         </ul>
         
-        <CartWidget/>
+          <div className="cart-icon">
+          
+          <NavLink to="/cart" style={{textDecoration:'none'}}>
+            {/* <i className="fas fa-shopping-cart"></i> */}
+            
+            <CartWidget/>
+          </NavLink>
+        </div>
       </nav>
     </header>
   );

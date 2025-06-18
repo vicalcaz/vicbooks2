@@ -24,6 +24,11 @@ body {
   }
   
   .nav-links {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+    font-size: 1.5rem; /* O prueba con 18px, 20px, etc. */
+    font-weight: 500;  /* Opcional: para que se vea más gruesa */
     list-style: none;
     display: flex;
     gap: 1.5rem;
@@ -44,11 +49,7 @@ body {
   }
   
   .cart img {
-<<<<<<< HEAD
     width: 15px; /* Ajusta el tamaño según sea necesario */
-=======
-    width: 30px; /* Ajusta el tamaño según sea necesario */
->>>>>>> d6af2a61ec33fbaddb1ac016bf4c7f3e90127510
     height: auto;
   }
   
