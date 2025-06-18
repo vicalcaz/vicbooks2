@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Error from './components/Error';
 //importar el proveedor del contexto del carrito
 import { CartProvider } from './context/CartContext';
-import CheckoutUseForm from './components/CheckoutUseForm';
+import CheckOutUseForm from './components/CheckOutUseForm';
 import Cart from './components/Cart';
 //importar el componente Cart
 function App() {
@@ -29,7 +29,7 @@ function App() {
         <Route path='/item/:itemId' element={<ItemDetailContainer/>}/> 
         <Route path="/:otrosId" element={<ItemListContainer greeting="Estas en:" />}/>
          <Route path='/cart' element={<Cart/>}/>
-        <Route path='/checkout' element={<CheckoutUseForm/>}/>
+        <Route path='/checkout' element={<CheckOutUseForm/>}/>
         <Route path='*' element={<Error/>}/> 
         {/* //ruta nueva del Checkout */}
         </Routes> 
