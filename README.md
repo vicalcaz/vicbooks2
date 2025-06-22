@@ -1,13 +1,13 @@
-# Coder Flex App
+# Reac JS App
 
-Este proyecto fue realizado para enseñar las bases de react con javascript en Coderhouse
+Este proyecto fue realizado como final de proyecto del curso de react con javascript en Coderhouse. Es una pagina de venta de libros usados.
 
 ![app](/public/paginaVicBooks.png)
 
 ### Instalación
 
 1. Clone el repositorio
-2. Haga el comando 'cd vickbooks'
+2. Haga el comando 'cd vicbooks'
 3. Instale dependencias con el comando 'npm install'
 4. Para levantar la app en el servidor local ejecute el comando 'npm run dev'
 
