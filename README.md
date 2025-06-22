@@ -13,12 +13,20 @@ Este proyecto fue realizado como final de proyecto del curso de react con javasc
 
 ### Version Host
 
-Si desea ver el proyecto on line, puede ingresar el siguiente link: [https://vicbooks2-hp7gl92up-vicalcazs-projects.vercel.app/home]()
+Si desea ver el proyecto on line, puede ingresar el siguiente link: [https://vicbooks2.vercel.app/]()
 
-### Librearias Utilizadas
+### Librerías Utilizadas
+- [React]() Librería principal para construir la interfaz de usuario.
 - [Reac Bootstrap]() utilizada para el styling de la pp
+- [Reac Dom]() Renderizado de componentes React en el DOM.
 - [Reac Router Dom]() utilizada para la navegación por rutas
 - [ReacFirebase]() utilizada como base de datos
+- [SweetAlert2]() Para mostrar alertas y mensajes modales personalizados.
+- [React Hook Form]() Manejo y validación de formularios de manera eficiente.
+
+### Servicios usados
+- [Vercel]() Plataforma de hosting para el despliegue del proyecto .
+- [Vite]() Herramienta de desarrollo para proyectos React.
 
 Desarrollado por Victoria Alcázar
 
