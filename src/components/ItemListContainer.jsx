@@ -18,8 +18,16 @@ const ItemListContainer = ({greeting})=>{
         setLoading(true);
         //pedir a firebase los productos
         //conectarnos con nuestra colección de productos
-        const productsCollection = categoryId ? query(collection(db, "productos"), where("category", "==", categoryId)): collection(db, "productos")
-        
+        // const productsCollection = categoryId ? query(collection(db, "productos"), where("category", "==", categoryId)): collection(db, "productos")
+         // Determina el filtro a aplicar
+        let productsCollection = collection(db, "productos");
+        if (categoryId) {
+            productsCollection = query(productsCollection, where("category", "==", categoryId));
+        } else if (seleccionadosId) {
+            productsCollection = query(productsCollection, where("seleccionados", "==", seleccionadosId));
+        } else if (otrosId) {
+            productsCollection = query(productsCollection, where("otros", "==", otrosId));
+        }
         //pedir a firebase los productos (documentos)
         getDocs(productsCollection)
         //getdoc devuelve una promesa, lo tratamos con then y devuelve un array de productos
@@ -37,7 +45,7 @@ const ItemListContainer = ({greeting})=>{
         })
         .catch((error)=> console.log(error))
         .finally(()=> setLoading(false))
-    },[categoryId])
+    },[categoryId, seleccionadosId, otrosId])
     /* useEffect(() => {
         setLoading(true);
         getProducts()

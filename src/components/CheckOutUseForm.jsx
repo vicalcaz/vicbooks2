@@ -1,17 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../context/CartContext'
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { doc, updateDoc, addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../service/firebase'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+
+
 const CheckOutUseForm = () => {
-    
     const [orderId, setOrderId] = useState('')
-    const {cart, cartTotal, clear}=useContext(CartContext)
+    const { cart, cartTotal, cartTotalConImpuestos, clear } = useContext(CartContext);
     const {register, handleSubmit, formState:{errors}, getValues}= useForm()
 
     console.log(errors, 'errors')
-    const finalizarCompra = (dataDelForm)=>{
+    const finalizarCompra = async (dataDelForm)=>{
         let orden = {
             comprador:{
                 name:dataDelForm.name,
@@ -20,20 +21,30 @@ const CheckOutUseForm = () => {
             },
             compras:cart,
             total:cartTotal(),
+            totalConImpuestos: cartTotalConImpuestos(), // <-- agrega este campo
             date:serverTimestamp()
         }
         const ventas = collection(db, "orders")
-        //agregar un doc
-        addDoc(ventas, orden)
-        .then((res)=>{
-            setOrderId(res.id)
-            clear()
-        })
-        .catch((error)=> console.log(error))
-       }
-    
+        try {
+        const res = await addDoc(ventas, orden);
+        setOrderId(res.id);
 
-    
+            // Descontar stock de cada producto comprado
+            for (const item of cart) {
+            const productoRef = doc(db, "productos", item.id);
+                await updateDoc(productoRef, {
+                    stock: item.stock - item.quantity
+             });
+            }
+        clear();
+      
+        // ...navegación o mensaje de éxito...
+        } catch (error) {
+            console.log(error);
+        }
+
+      
+}     
   return (
    <>
    {
@@ -41,6 +52,7 @@ const CheckOutUseForm = () => {
         ?  <div>
             <h2>Generaste correctamente tu orden!</h2>
             <h2>El id es:{orderId}</h2>
+             
             <Link to='/' className='btn btn-dark'>Volver a Home!</Link>
            </div>
         
@@ -57,7 +69,7 @@ const CheckOutUseForm = () => {
          {errors?.address?.type === "maxLength" && <span style={{color:'red'}}>La dirección es demasiado larga</span>}
         <input className='form-control' type="email" placeholder='Complete con su correo' name='email' {...register("email", {required:true})} />
         {errors?.email?.type === "required" && <span style={{color:'red'}}>Por favor complete el campo</span>}
-        <input className='form-control' type="email" placeholder='Repita su correo' name='email2' {...register("secondemail", {required:true, validate:{equalsMails: mail2 => mail2 === getValues().email}})} />
+        <input className='form-control' type="email" placeholder='Repita su correo' name='secondemail' {...register("secondemail", {required:true, validate:{equalsMails: secondemail => secondemail === getValues().email}})} />
         {errors?.secondemail?.type === "required" && <span style={{color:'red'}}>Por favor complete el campo</span>}
         {errors?.secondemail?.type === "equalsMails" && <span style={{color:'red'}}>Los mails no coinciden</span>}
         <button className='btn btn-success' type='submit'>Finalizar Compra</button>
@@ -68,4 +80,4 @@ const CheckOutUseForm = () => {
   )
 }
 
-export default ChecOutUseForm
+export default CheckOutUseForm

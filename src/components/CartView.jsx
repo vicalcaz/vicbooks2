@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 const CartView = () => {
-    const {cart, cartTotal, clear, removeItem} = useContext(CartContext)
-
+    const { cart, cartTotal, cartTotalConImpuestos, clear, removeItem } = useContext(CartContext);
+    
     const preConfirm = () => {
         Swal.fire({
             title:'¿Esta seguro de borrar todo el carrito?',
@@ -14,7 +14,7 @@ const CartView = () => {
             confirmButtonText:'Si'
         }).then((result)=>{
             if(result.isConfirmed){
-                clear()
+                clear() 
             }else if (result.isDenied){
                 //pueden poner algo si cancela
             }
@@ -40,6 +40,8 @@ const CartView = () => {
         </div>
         {/* mostrar el total a pagar y la opcion de borrar todo el carrito y terminar la compra */}
         <span>Total a pagar: ${cartTotal()},00</span>
+        <br />
+        <span>Total con impuestos (21% IVA): ${cartTotalConImpuestos().toFixed(2)}</span>
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', width:'80%', padding:'2rem'}}>
             <button className='btn btn-danger' onClick={preConfirm}>Borrar</button>
             <Link to='/checkout' className='btn btn-dark'>Terminar compra</Link>

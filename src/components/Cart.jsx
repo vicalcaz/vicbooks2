@@ -6,8 +6,11 @@ import EmptyCart from './EmptyCart'
 
 const Cart = () => {
     const {cart}= useContext(CartContext)
+    console.log(cart.length)
   return (
     <>
+    
+
     {cart.length ? <CartView/> : <EmptyCart/>}
     </>
   )

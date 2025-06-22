@@ -51,7 +51,7 @@ const Navbarnew = () => {
           <li><NavLink to="ofertas">Joyas en oferta</NavLink></li>
           <li><NavLink to="novedades">Novedades</NavLink></li>
           <li><NavLink to="nosotros">Sobre Nosotros</NavLink></li>
-          <li><NavLink to="contacto">Contacto</NavLink></li>
+          <li><NavLink to="/contacto">Contacto</NavLink></li>
                     
         </ul>
         

@@ -3,6 +3,7 @@ import { CartContext } from '../context/CartContext'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../service/firebase'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 //si nos animamos hacer una librería de validación de formularios
 // import { useForm } from "react-hook-form";
@@ -33,13 +34,23 @@ const Checkout = () => {
        e.preventDefault()
 
        if(!buyer.name || !buyer.address || !buyer.email){
-        alert('Todos los campos sin requeridos!')
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campos incompletos',
+            text: 'Todos los campos son requeridos.',
+            confirmButtonColor: '#3085d6'
+        });
        }else if(buyer.email !== validateEmail){
-        alert('Los correos no coinciden!')
+        Swal.fire({
+            icon: 'warning',
+            title: 'Correos no coinciden',
+            text: 'Los correos electrónicos no coinciden.',
+            confirmButtonColor: '#3085d6'
+        });
        }else{
          let orden = {
-            comprador:buyer,
-            compras:cart,
+            comprador: buyer,
+            compras: cart,
             total: cartTotal(),
             date: serverTimestamp()
         }
@@ -51,8 +62,22 @@ const Checkout = () => {
         .then((res)=>{
             setOrderId(res.id)
             clear()
+            Swal.fire({
+                icon: 'success',
+                title: '¡Compra realizada!',
+                text: 'Tu orden fue generada correctamente.',
+                confirmButtonColor: '#3085d6'
+            });
         })
-        .catch((error)=> console.log(error))
+        .catch((error)=> {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Ocurrió un error al procesar la compra. Intenta nuevamente.',
+                confirmButtonColor: '#d33'
+            });
+            console.log(error)
+        })
        }
     }
     console.log(buyer)
@@ -71,6 +96,7 @@ const Checkout = () => {
         ?  <div>
             <h2>Generaste correctamente tu orden!</h2>
             <h2>El id es:{orderId}</h2>
+             
             <Link to='/' className='btn btn-dark'>Volver a Home!</Link>
            </div>
         

@@ -12,7 +12,7 @@
 
 .texto-brillante {
     font-size: 2px; /* Tamaño de la fuente */
-    color: #e4cf11; /* Color del texto */
+    color: #eeee08; /* Color del texto */
     animation: brillo 10.5s infinite; /* Tiempo y repetición de la animación */
     background-color: Black;
     display: flex; 

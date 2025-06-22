@@ -10,6 +10,8 @@ import Error from './components/Error';
 import { CartProvider } from './context/CartContext';
 import CheckOutUseForm from './components/CheckOutUseForm';
 import Cart from './components/Cart';
+import SobreNosotros from "./components/SobreNosotros";
+import Contacto from "./components/Contacto";
 //importar el componente Cart
 function App() {
   return (
@@ -28,8 +30,10 @@ function App() {
         <Route path='/seleccionados/:seleccionadosId' element={<ItemListContainer greeting="Estas en la sección de seleccionados: "/>}/>
         <Route path='/item/:itemId' element={<ItemDetailContainer/>}/> 
         <Route path="/:otrosId" element={<ItemListContainer greeting="Estas en:" />}/>
-         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/cart' element={<Cart/>}/>
         <Route path='/checkout' element={<CheckOutUseForm/>}/>
+        <Route path="/nosotros" element={<SobreNosotros />} />
+        <Route path="/contacto" element={<Contacto />} />
         <Route path='*' element={<Error/>}/> 
         {/* //ruta nueva del Checkout */}
         </Routes> 

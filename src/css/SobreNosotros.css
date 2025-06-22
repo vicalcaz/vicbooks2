@@ -1,0 +1,50 @@
+.sobre-container {
+  padding: 3rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  max-width: 700px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.sobre-title {
+  font-size: 2.8rem;
+  color: #e4cf11; 
+  margin-bottom: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 1px 2px 8px #b2bec3;
+}
+
+.sobre-subtitle {
+  font-size: 1.4rem;
+  color: #222f3e;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.sobre-highlight {
+  color: #ff7675;
+  font-weight: bold;
+}
+
+.sobre-thanks {
+  font-size: 1.2rem;
+  color: #636e72;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+.sobre-bookicon {
+  font-size: 3rem;
+  color: #3b3b98;
+  margin-bottom: 1rem;
+  animation: sobre-bounce 1.5s infinite;
+}
+
+@keyframes sobre-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

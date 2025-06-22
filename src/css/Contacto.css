@@ -1,0 +1,16 @@
+.contacto-container input,
+.contacto-container textarea {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+.contacto-container button.btn.btn-dark {
+  width: auto;
+  min-width: unset;
+  padding: 0.7rem 1.2rem;
+  display: block;
+  margin: 0 auto;
+  align-self: center;
+}
