@@ -13,7 +13,7 @@ Este proyecto fue realizado como final de proyecto del curso de react con javasc
 
 ### Version Host
 
-Si desea ver el proyecto on line, puede ingresar el siguiente link: [VicBooks App]()
+Si desea ver el proyecto on line, puede ingresar el siguiente link: [https://vicbooks2-hp7gl92up-vicalcazs-projects.vercel.app/home]()
 
 ### Librearias Utilizadas
 - [Reac Bootstrap]() utilizada para el styling de la pp
